@@ -1,0 +1,15 @@
+version: "3.4"
+services:
+  rabbit:
+    image: rabbitmq:3-management
+    container_name: RabbitmqEmOon
+    ports:
+      - 8080:5672
+      - 8081:15672
+    environment:
+      - "RABBITMQ_DEFAULT_USER=Admin"
+      - "RABBITMQ_DEFAULT_PASS=DevOps3MoOon"
+    volumes:
+      - ./data:/var/lib/rabbitmq:rw
+      - ./conf:/etc/rabbitmq/rabbitmq.config:rw
+      - ./database:/var/lib/rabbitmq/mnesia/rabbit@my-rabbit:rw
